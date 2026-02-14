@@ -150,7 +150,7 @@ export default function CheckInPage() {
                         onCheckout={handleCheckout}
                         onBack={() => {
                             sessionStorage.removeItem("hackoverflow_ticket");
-                            router.push("/checkin");
+                            router.push("/");
                         }}
                     />
                 </div>

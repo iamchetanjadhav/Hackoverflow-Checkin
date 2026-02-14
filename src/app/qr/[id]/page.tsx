@@ -10,8 +10,8 @@ export default function QRRedirectPage() {
 
     useEffect(() => {
         if (uuid) {
-            // Redirect to check-in page with QR parameter
-            router.push(`/checkin?qr=${uuid}`);
+            // Redirect to manual page with QR parameter
+            router.push(`/manual?qr=${uuid}`);
         }
     }, [uuid, router]);
 

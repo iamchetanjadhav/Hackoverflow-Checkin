@@ -145,9 +145,9 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="mt-auto pt-10 text-white/10 text-[10px] font-bold uppercase tracking-[0.5em]"
+        className="mt-auto pt-10 text-white/20 text-[12px] font-bold uppercase"
       >
-        Designed for Excellence
+        Copyright &copy; 2026 HackOverflow 4.0 | All rights reserved.
       </motion.div>
     </main>
   );

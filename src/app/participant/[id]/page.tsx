@@ -116,7 +116,7 @@ export default function CheckInPage() {
     }
 
     return (
-        <main className="min-h-screen bg-[#0F0F0F] text-white overflow-x-hidden px-3 sm:px-4 pt-32 pb-10 sm:pt-30 sm:pb-16 section-hero">
+        <main className="min-h-screen bg-[#0F0F0F] text-white overflow-x-hidden px-3 sm:px-4 pt-16 pb-10 sm:pt-20 sm:pb-16 section-hero">
             <div className="text-center mb-6 sm:mb-8 max-w-2xl mx-auto">
                 <span className="inline-block mb-3 rounded-full border border-[#FCB216]/30 bg-[#FCB216]/10 px-4 py-1 text-xs font-semibold tracking-wide text-[#FCB216]">
                     LIVE EVENT

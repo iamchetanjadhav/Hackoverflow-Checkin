@@ -76,7 +76,7 @@ function ManualCheckInContent() {
                 return;
             }
 
-            router.push(`/portal/${data.user.id}`);
+            router.push(`/participant/${data.user.id}`);
         } catch (err) {
             setError("Network error. Please try again.");
             setLoading(false);
@@ -209,8 +209,8 @@ function ManualCheckInContent() {
                     </div>
                 </div>
 
-                <p className="text-center mt-12 text-white/10 text-[9px] font-bold uppercase tracking-[0.5em]">
-                    &copy; 2026 HACKOVERFLOW 4.0 | PILLAI HOC COLLEGE OF ENGINEERING
+                <p className="text-center mt-12 text-white/20 text-[12px] font-bold uppercase ">
+                    Copyright &copy; 2026 HackOverflow 4.0 | All rights reserved.
                 </p>
             </div>
         </main>

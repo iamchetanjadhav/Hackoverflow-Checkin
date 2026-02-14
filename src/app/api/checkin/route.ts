@@ -8,21 +8,21 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Missing UUID" }, { status: 400 });
     }
 
+    // CHECK OUT
     if (action === "checkout") {
         const { data, error } = await supabaseServer
             .from("participants")
             .update({
                 check_out_status: true,
-                checked_out_at: new Date(),
+                checked_out_at: new Date().toISOString(),
             })
             .eq("id", id)
-            .eq("check_out_status", false)
             .select()
             .single();
 
-        if (error || !data) {
+        if (error) {
             return NextResponse.json(
-                { error: "Already checked out or invalid ticket" },
+                { error: error.message },
                 { status: 400 }
             );
         }
@@ -30,20 +30,20 @@ export async function POST(req: Request) {
         return NextResponse.json({ success: true, user: data });
     }
 
-    // Default = check-in
+    // CHECK IN 
     const { data, error } = await supabaseServer
         .from("participants")
         .update({
             check_in_status: true,
-            checked_in_at: new Date(),
+            checked_in_at: new Date().toISOString(),
         })
         .eq("id", id)
         .select()
         .single();
 
-    if (error || !data) {
+    if (error) {
         return NextResponse.json(
-            { error: "Invalid UUID" },
+            { error: error.message },
             { status: 400 }
         );
     }

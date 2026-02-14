@@ -15,10 +15,6 @@ import {
 } from "lucide-react";
 
 
-interface FirestoreTimestamp {
-    seconds: number;
-    nanoseconds: number;
-}
 
 interface BoardingPassProps {
     participantName: string;
@@ -29,11 +25,11 @@ interface BoardingPassProps {
     eventDates: string;
     wifiSsid: string;
     wifiPassword: string;
-    roomNo: string;
+    labNo: string;
     tableNo: string;
     welcomeMessage: string;
-    checkedInAt: string | FirestoreTimestamp | null;
-    checkedOutAt?: string | FirestoreTimestamp | null;
+    checkedInAt: string | null;
+    checkedOutAt?: string | null;
     onBack: () => void;
     onCheckout?: () => Promise<void>;
 }
@@ -48,7 +44,7 @@ export function BoardingPass({
     eventDates,
     wifiSsid,
     wifiPassword,
-    roomNo,
+    labNo,
     tableNo,
     welcomeMessage,
     checkedInAt,
@@ -68,19 +64,9 @@ export function BoardingPass({
     const formattedCheckInTime = (() => {
         if (!checkedInAt) return "Not Available";
 
-        let date: Date | null = null;
+        const date = new Date(checkedInAt);
 
-        if (typeof checkedInAt === "object" && "seconds" in checkedInAt) {
-            date = new Date(checkedInAt.seconds * 1000);
-        }
-        else if (typeof checkedInAt === "string") {
-            const parsed = new Date(checkedInAt);
-            if (!isNaN(parsed.getTime())) {
-                date = parsed;
-            }
-        }
-
-        if (!date) return "Not Available";
+        if (isNaN(date.getTime())) return "Not Available";
 
         return date.toLocaleString("en-IN", {
             timeZone: "Asia/Kolkata",
@@ -92,19 +78,9 @@ export function BoardingPass({
     const formattedCheckOutTime = (() => {
         if (!checkedOutAt) return null;
 
-        let date: Date | null = null;
+        const date = new Date(checkedOutAt);
 
-        if (typeof checkedOutAt === "object" && "seconds" in checkedOutAt) {
-            date = new Date(checkedOutAt.seconds * 1000);
-        }
-        else if (typeof checkedOutAt === "string") {
-            const parsed = new Date(checkedOutAt);
-            if (!isNaN(parsed.getTime())) {
-                date = parsed;
-            }
-        }
-
-        if (!date) return null;
+        if (isNaN(date.getTime())) return null;
 
         return date.toLocaleString("en-IN", {
             timeZone: "Asia/Kolkata",
@@ -112,6 +88,7 @@ export function BoardingPass({
             timeStyle: "short",
         });
     })();
+
 
     async function handleCheckout() {
         if (!onCheckout || checkingOut) return;
@@ -214,10 +191,8 @@ export function BoardingPass({
                                 value={eventDates}
                             />
                         </div>
-
-                        {/* Row 3: Room No & Table No */}
                         <div className="order-5">
-                            <HighlightCard label="Room No" value={roomNo} />
+                            <HighlightCard label="Lab No" value={labNo} />
                         </div>
                         <div className="order-6">
                             <HighlightCard label="Table No" value={tableNo} />

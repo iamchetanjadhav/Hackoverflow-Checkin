@@ -24,7 +24,6 @@ export default function CheckInPage() {
                 if (stored) {
                     const parsed = JSON.parse(stored);
 
-                    // ✅ Only use stored ticket if it matches current UUID
                     if (parsed.id === uuid) {
                         setTicket(parsed);
                         setLoading(false);
@@ -100,8 +99,6 @@ export default function CheckInPage() {
                 alert(data.error || "Checkout failed");
                 return;
             }
-
-            // Update ticket with checkout data
             const updatedTicket = { ...ticket, ...data.user };
             setTicket(updatedTicket);
 
@@ -142,7 +139,7 @@ export default function CheckInPage() {
                         eventDates="March 11–13, 2026"
                         wifiSsid={ticket.wifi_name}
                         wifiPassword={ticket.wifi_password}
-                        roomNo={ticket.room_no || "TBA"}
+                        labNo={ticket.lab_no || "TBA"}
                         tableNo={ticket.table_number}
                         welcomeMessage="Welcome to HackOverflow 4.0! We're thrilled to have you join us for 48 hours of innovation, creativity, and collaboration. Let's build something amazing 🚀"
                         checkedInAt={ticket.checked_in_at}

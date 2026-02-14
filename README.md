@@ -32,7 +32,7 @@
 src/
 ├── app/
 │   ├── api/             # Backend endpoints for QR lookup and check-in
-│   ├── checkin/         # Main check-in interface
+│   ├── manual/         # Main check-in interface
 │   ├── participant/     # Digital Boarding Pass portal (renamed from portal)
 │   └── qr/              # QR redirection logic
 ├── components/          # Reusable UI (Boarding Pass)

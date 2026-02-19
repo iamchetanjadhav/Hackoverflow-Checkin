@@ -9,7 +9,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0+-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-Database-3ecf8e?style=for-the-badge&logo=supabase)](https://supabase.com/)
 
-**🌐 [Visit Check-in Portal](https://hackoverflow4.tech/checkin)** • [Features](#-features) • [Installation](#-installation) • [Documentation](#-documentation)
+**🌐 [Visit Check-in Portal]([https://hackoverflow4.tech/checkin](https://ho-40-am6g9kzbe-iamchetanjadhavs-projects.vercel.app/)** • [Features](#-features) • [Installation](#-installation) • [Documentation](#-documentation)
 
 </div>
 

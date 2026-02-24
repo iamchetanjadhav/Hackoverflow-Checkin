@@ -50,7 +50,7 @@ const parseEnv = (): { uri: string; dbName: string } => {
 const MONGODB_OPTIONS = {
   maxPoolSize: 10,
   minPoolSize: 2,
-  maxIdleTimeMS: 30000,
+  maxIdleTimeMS: 60000,
   connectTimeoutMS: 10000,
   socketTimeoutMS: 45000,
 };

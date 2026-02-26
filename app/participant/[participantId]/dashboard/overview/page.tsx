@@ -96,6 +96,10 @@ export default function OverviewPage() {
                             <span className="text-gray-500">Institute</span>
                             <span className="text-white truncate max-w-[200px] text-right">{participant.institute || "N/A"}</span>
                         </div>
+                        <div className="flex justify-between border-b border-white/5 pb-3">
+                            <span className="text-gray-500">Accommodation Room</span>
+                            <span className="text-white font-semibold text-[#FCB216]">{participant.roomNo || "Not Yet Assigned"}</span>
+                        </div>
                     </div>
                 </section>
 

@@ -97,6 +97,10 @@ export default function CheckInDashboardPage() {
                             <span className="text-gray-500">Institute</span>
                             <span className="text-white font-semibold">{participant?.institute || "N/A"}</span>
                         </div>
+                        <div className="flex justify-between text-sm">
+                            <span className="text-gray-500">Room No</span>
+                            <span className="text-white font-semibold text-[#FCB216]">{participant?.roomNo || "Not Yet Assigned"}</span>
+                        </div>
                     </div>
 
                     <div className="pt-4">

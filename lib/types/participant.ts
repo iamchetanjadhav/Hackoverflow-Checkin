@@ -41,6 +41,7 @@ export const DBParticipantSchema = z.object({
   teamName: z.string().optional(),
   institute: z.string().optional(),
   labAllotted: z.string().optional(),
+  loginPassword: z.string().optional(), // plain-text password from registration stored in DB
   wifiCredentials: WifiCredentialsSchema.optional(),
   collegeCheckIn: CheckInStatusSchema.optional(),
   labCheckIn: CheckInStatusSchema.optional(),

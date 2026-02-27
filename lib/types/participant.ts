@@ -41,6 +41,8 @@ export const DBParticipantSchema = z.object({
   teamName: z.string().optional(),
   institute: z.string().optional(),
   labAllotted: z.string().optional(),
+  roomNo: z.string().optional(), // Accommodation room number
+  loginPassword: z.string().optional(), // plain-text password from registration stored in DB
   wifiCredentials: WifiCredentialsSchema.optional(),
   collegeCheckIn: CheckInStatusSchema.optional(),
   labCheckIn: CheckInStatusSchema.optional(),
@@ -60,6 +62,7 @@ export const ClientParticipantSchema = z.object({
   teamName: z.string().optional(),
   institute: z.string().optional(),
   labAllotted: z.string().optional(),
+  roomNo: z.string().optional(),
   wifiCredentials: WifiCredentialsSchema.optional(),
   collegeCheckIn: z
     .object({
@@ -123,18 +126,19 @@ export function toClientParticipant(participant: DBParticipant): ClientParticipa
     teamName: participant.teamName,
     institute: participant.institute,
     labAllotted: participant.labAllotted,
+    roomNo: participant.roomNo,
     wifiCredentials: participant.wifiCredentials,
     collegeCheckIn: participant.collegeCheckIn
       ? {
-          status: participant.collegeCheckIn.status,
-          time: participant.collegeCheckIn.time?.toISOString(),
-        }
+        status: participant.collegeCheckIn.status,
+        time: participant.collegeCheckIn.time?.toISOString(),
+      }
       : undefined,
     labCheckIn: participant.labCheckIn
       ? {
-          status: participant.labCheckIn.status,
-          time: participant.labCheckIn.time?.toISOString(),
-        }
+        status: participant.labCheckIn.status,
+        time: participant.labCheckIn.time?.toISOString(),
+      }
       : undefined,
   };
 }

@@ -27,3 +27,10 @@ export {
   checkDatabaseConnectionAction,
   getDatabaseHealthAction,
 } from './database';
+
+// Auth actions
+export {
+  loginParticipantAction,
+  logoutAction,
+  getSessionAction,
+} from './auth';
